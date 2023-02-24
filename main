@@ -1,0 +1,26 @@
+enum class CurrencyComparison(val country: String) {
+    Germany("Euro"),
+    Mali("CFA franc"),
+    Dominica("Eastern Caribbean dollar"),
+    Canada("Canadian dollar"),
+    Spain("Euro"),
+    Australia("Australian dollar"),
+    Brazil("Brazilian real"),
+    Senegal("CFA franc"),
+    France("Euro"),
+    Grenada("Eastern Caribbean dollar"),
+    Kiribati("Australian dollar"),
+    NULL("No information")
+}
+
+fun checkCurrency(country: String): CurrencyComparison {
+    for (i in CurrencyComparison.values()) {
+        if (country == i.name) return i
+    }
+    return CurrencyComparison.NULL
+}
+
+fun main() {
+    val (a, b) = readln().split(" ")
+    print(checkCurrency(a).country == checkCurrency(b).country)
+}
